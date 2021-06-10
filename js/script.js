@@ -1,9 +1,8 @@
 computerNum = [];
 userNum = [];
-maxNum = 16;
-userMaxNum = 100 - maxNum;
 min = 1;
 max = 0;
+maxNum = 16;
 
 var difficulty = prompt('Che livello di difficoltà scegli? 0, 1 o 2?');
 while (difficulty !== "0" && difficulty !== "1" && difficulty !== "2") {
@@ -23,6 +22,8 @@ switch (difficulty) {
         break;
 }
 
+userMaxNum = max - maxNum;
+
 while (computerNum.length < maxNum) {
     var element = Math.floor(Math.random() * (max - min + 1)) + min;
     if (!computerNum.includes(element)) {
@@ -33,8 +34,10 @@ while (computerNum.length < maxNum) {
 console.log(computerNum);
 
 while (userNum.length < userMaxNum && !computerNum.includes(element2)) {
-    var element2 = parseInt(prompt('Inserisci un numero!'));
-    if (computerNum.includes(element2)) {
+    var element2 = parseInt(prompt('Inserisci un numero compreso tra ' + min + ' e ' + max + '!'));
+    if (element2 < min || element2 > max) {
+        alert('Il numero deve essere compreso tra ' + min + ' e ' + max + '!');
+    } else if (computerNum.includes(element2)) {
         alert('Ops! Hai trovato una mina!');
     } else if (userNum.includes(element2)) {
         alert('Ops! Hai inserito un numero già usato!');
