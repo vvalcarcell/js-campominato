@@ -16,14 +16,12 @@ while (computerNum.length < maxNum) {
 
 console.log(computerNum);
 
-while (userNum.length < userMaxNum) {
-    var element2 = prompt('Inserisci un numero!');
-    if (computerNum.indexOf(element2) !== -1) {
+while (userNum.length < userMaxNum && !computerNum.includes(element2) && !userNum.includes(element2)) {
+    var element2 = parseInt(prompt('Inserisci un numero!'));
+    if (computerNum.includes(element2)) {
         alert('Ops! Hai trovato una mina!');
-        break;
     } else if (userNum.includes(element2)) {
         alert('Ops! Hai inserito un numero già usato!');
-        break;
     } else {
         userNum.push(element2);
     }
@@ -32,14 +30,4 @@ while (userNum.length < userMaxNum) {
 
 document.getElementById('score').innerHTML = 'Hai totalizzato un punteggio di ' + userNum.length;
 
-function check(array, element) {
 
-    for (i = 0; i < array.length; i++) {
-        if (element === array[i]) {
-            return true;
-        }
-    }
-
-    return false;
-
-}
