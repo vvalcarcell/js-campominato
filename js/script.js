@@ -49,6 +49,10 @@ while (userNum.length < userMaxNum && !computerNum.includes(element2)) {
 
 document.getElementById('score').innerHTML = 'Hai totalizzato un punteggio di ' + userNum.length;
 
+if (userNum.length === userMaxNum) {
+    document.getElementById('score').innerHTML += 'Complimenti, hai vinto!';
+}
+
 // -------------------------------------------------
 
 
