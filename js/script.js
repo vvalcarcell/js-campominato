@@ -18,7 +18,7 @@ console.log(computerNum);
 
 while (userNum.length < userMaxNum) {
     var element2 = prompt('Inserisci un numero!');
-    if (check(computerNum, element2)) {
+    if (computerNum.indexOf(element2) !== -1) {
         alert('Ops! Hai trovato una mina!');
         break;
     } else if (userNum.includes(element2)) {
