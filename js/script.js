@@ -1,6 +1,3 @@
-// function randomNum(min, max) {
-
-// }
 computerNum = [];
 userNum = [];
 maxNum = 16;
