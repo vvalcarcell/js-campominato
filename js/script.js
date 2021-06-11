@@ -35,7 +35,7 @@ console.log(computerNum);
 
 while (userNum.length < userMaxNum && !computerNum.includes(element2)) {
     var element2 = parseInt(prompt('Inserisci un numero compreso tra ' + min + ' e ' + max + '!'));
-    if (element2 < min || element2 > max) {
+    if (element2 < min || element2 > max || isNaN(element2)) {
         alert('Il numero deve essere compreso tra ' + min + ' e ' + max + '!');
     } else if (computerNum.includes(element2)) {
         alert('Ops! Hai trovato una mina!');
@@ -51,6 +51,8 @@ document.getElementById('score').innerHTML = 'Hai totalizzato un punteggio di ' 
 
 if (userNum.length === userMaxNum) {
     document.getElementById('score').innerHTML += 'Complimenti, hai vinto!';
+} else {
+    document.getElementById('score').innerHTML += 'Magari la prossima volta andrà meglio!';
 }
 
 // -------------------------------------------------
