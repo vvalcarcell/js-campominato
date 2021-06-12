@@ -6,13 +6,25 @@ var hundredList = [];
 var i = 0;
 var button = document.getElementById('button');
 var classCell = document.getElementsByClassName('cell');
-var computerList = [2, 3, 4];
+var computerList = [];
+var free = 100 - 16;
+var gameOver = false;
+var field = document.getElementById('field');
+var score = 0;
+
+
+for (var c = 0; c < 16; c++) {
+    var computerNum = getRandomNum(1, 100);
+    if (!computerList.includes(computerNum)) {
+        computerList.push(computerNum);
+    }
+}
 
 
 button.addEventListener("click", function () {
-    while (hundredList.length < 10) {
+    while (hundredList.length < 100) {
 
-        var num = getRandomNum(1, 10);
+        var num = getRandomNum(1, 100);
         if (!hundredList.includes(num)) {
             hundredList.push(num);
 
@@ -23,17 +35,26 @@ button.addEventListener("click", function () {
 
     }
 
-    for (var x = 0; x < 10; x++) {
-        classCell[x].onclick = function () {
+
+    for (x = 0; x < free; x++) {
+        classCell[x].addEventListener("click", function () {
             if (!computerList.includes(parseInt(this.innerHTML))) {
                 this.style.backgroundImage = "url('img/whiteFlag.png')";
+                score += 1;
+                document.getElementById('score').innerHTML = score;
             } else {
                 this.style.backgroundImage = "url('img/bomb.jpg')";
+                gameOver = true;
+                // field.style.display = "none";
             }
-        }
+        })
     }
 
+
+
 });
+
+
 
 
 
