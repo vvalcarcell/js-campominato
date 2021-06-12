@@ -6,7 +6,7 @@ var hundredList = [];
 var i = 0;
 var button = document.getElementById('button');
 var classCell = document.getElementsByClassName('cell');
-var computerList = [2, 3, 4]
+var computerList = [2, 3, 4];
 
 
 button.addEventListener("click", function () {
@@ -26,15 +26,16 @@ button.addEventListener("click", function () {
     for (var x = 0; x < 10; x++) {
         classCell[x].onclick = function () {
             if (!computerList.includes(parseInt(this.innerHTML))) {
-                this.style.backgroundImage = "url('whiteFlag.png')";
+                this.style.backgroundImage = "url('img/whiteFlag.png')";
             } else {
-                this.style.backgroundImage = "url('bomb.jpg')";
-
+                this.style.backgroundImage = "url('img/bomb.jpg')";
             }
         }
     }
 
 });
+
+
 
 
 
