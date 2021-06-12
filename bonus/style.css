@@ -4,4 +4,12 @@ width: 50px;
 background-color: grey;
 border: 1px solid black;
 margin-bottom: 10px;
+color: rgba(0, 0, 0, 0);
+background-size: cover;
+background-position: center;
 }
+
+/* .cellNum {
+opacity: 0;
+} */
+

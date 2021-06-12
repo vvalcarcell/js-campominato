@@ -25,10 +25,10 @@ button.addEventListener("click", function () {
 
     for (var x = 0; x < 10; x++) {
         classCell[x].onclick = function () {
-            if (computerList.includes(parseInt(this.innerHTML))) {
-                this.style.backgroundColor = "red";
+            if (!computerList.includes(parseInt(this.innerHTML))) {
+                this.style.backgroundImage = "url('whiteFlag.png')";
             } else {
-                this.style.backgroundColor = "green";
+                this.style.backgroundImage = "url('bomb.jpg')";
 
             }
         }
