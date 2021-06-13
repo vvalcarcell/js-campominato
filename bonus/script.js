@@ -49,17 +49,17 @@ button.addEventListener("click", function () {
                 field.style.display = "none";
                 document.getElementById('lost').style.display = "block";
                 document.getElementById('button').style.display = "none";
+            } else if (scoreList.length === free) {
+                document.getElementById("emoj").src = "img/faccina4.png";
+                field.style.display = "none";
+                document.getElementById('win').innerHTML = 'Complimenti! Hai vinto!'
+                classLost.style.display = "block";
+                document.getElementById('button').style.display = "none";
             }
         })
     }
 
-    if (scoreList.length === free) {
-        document.getElementById("emoj").src = "img/faccina4.png";
-        field.style.display = "none";
-        document.getElementById('win').innerHTML = 'Complimenti! Hai vinto!'
-        classLost.style.display = "block";
-        document.getElementById('button').style.display = "none";
-    }
+
 
 });
 
