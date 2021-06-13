@@ -3,14 +3,15 @@ function getRandomNum(min, max) {
 }
 
 var hundredList = [];
-var i = 0;
+var computerList = [];
+var scoreList = [];
 var button = document.getElementById('button');
 var classCell = document.getElementsByClassName('cell');
-var computerList = [];
+var field = document.getElementById('field');
+var classLost = document.getElementById('lost');
 var free = 100 - 16;
 var gameOver = false;
-var field = document.getElementById('field');
-var score = 0;
+var i = 0;
 
 
 for (var c = 0; c < 16; c++) {
@@ -35,24 +36,46 @@ button.addEventListener("click", function () {
 
     }
 
-
-    for (x = 0; x < free; x++) {
+    for (x = 0; x < 100; x++) {
         classCell[x].addEventListener("click", function () {
-            if (!computerList.includes(parseInt(this.innerHTML))) {
+            if (!computerList.includes(parseInt(this.innerHTML)) && !scoreList.includes(parseInt(this.innerHTML))) {
                 this.style.backgroundImage = "url('img/whiteFlag.png')";
-                score += 1;
-                document.getElementById('score').innerHTML = score;
-            } else {
-                this.style.backgroundImage = "url('img/bomb.jpg')";
-                gameOver = true;
-                // field.style.display = "none";
+                scoreList.push(parseInt(this.innerHTML));
+                document.getElementById('score').innerHTML = scoreList.length;
+            } else if (computerList.includes(parseInt(this.innerHTML))) {
+                // this.style.backgroundImage = "url('img/bomb.jpg')";
+                // gameOver = true;
+                document.getElementById("emoj").src = "img/faccina3.png";
+                field.style.display = "none";
+                document.getElementById('lost').style.display = "block";
+                document.getElementById('button').style.display = "none";
             }
         })
     }
 
-
+    if (scoreList.length === free) {
+        document.getElementById("emoj").src = "img/faccina4.png";
+        field.style.display = "none";
+        document.getElementById('win').innerHTML = 'Complimenti! Hai vinto!'
+        classLost.style.display = "block";
+        document.getElementById('button').style.display = "none";
+    }
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

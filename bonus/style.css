@@ -10,11 +10,16 @@ padding: 0;
   display: table;
 }
 
+h1 {
+margin-bottom: 20px;
+font-size: 50px;
+}
+
 .cell {
 height: 40px;
 width: 40px;
 background-color: lightgray;
-border: 1px solid grey;
+border: 2px solid grey;
 color: rgba(0, 0, 0, 0);
 background-size: cover;
 background-position: center;
@@ -23,8 +28,8 @@ cursor: pointer;
 }
 
 .field-container {
-/* border: 1px solid black; */
 margin: 20px auto;
+padding: 20px;
 width: 50%;
 min-width: 410px;
 text-align: center;
@@ -34,8 +39,48 @@ background-color: green;
 .field {
 width: 410px;
 margin: 0 auto;
-padding-top: 50px;
-/* border: 1px solid black; */
+padding-top: 20px;
+}
+
+#lost {
+display: none;
+}
+
+.topbar {
+position: relative;
+width: 410px;
+margin: 0 auto;
+}
+
+#score {
+display: inline-block;
+height: 50px;
+width: 100px;
+line-height: 50px;
+text-align: center;
+font-size: 30px;
+font-weight: bold;
+color: rgba(255, 0, 0, 0.747);
+background-color: rgb(175, 174, 174);
+border: 3px solid rgb(107, 107, 107);
+position: absolute;
+right: 5px;
+}
+
+.topbar > img {
+height: 70px;
+margin-top: -10px;
+}
+
+button {
+background-color: rgb(175, 174, 174);
+border: 3px solid rgb(107, 107, 107);
+margin-top: 20px;
+height: 50px;
+width: 100px;
+border-radius: 10px;
+font-size: 20px;
+font-weight: bold;
 }
 
 
