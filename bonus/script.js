@@ -14,7 +14,7 @@ var gameOver = false;
 var i = 0;
 
 
-for (var c = 0; c < 16; c++) {
+while (computerList.length < 16) {
     var computerNum = getRandomNum(1, 100);
     if (!computerList.includes(computerNum)) {
         computerList.push(computerNum);
@@ -53,11 +53,10 @@ button.addEventListener("click", function () {
         })
     }
 
-    if (scoreList.length === free) {
+    if (scoreList === free) {
         document.getElementById("emoj").src = "img/faccina4.png";
         field.style.display = "none";
-        document.getElementById('win').innerHTML = 'Complimenti! Hai vinto!'
-        classLost.style.display = "block";
+        document.getElementById('win').style.display = "block";
         document.getElementById('button').style.display = "none";
     }
 
