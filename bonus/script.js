@@ -39,6 +39,13 @@ button.addEventListener("click", function () {
             if (!computerList.includes(parseInt(this.innerHTML)) && !scoreList.includes(parseInt(this.innerHTML))) {
                 this.style.backgroundImage = "url('img/whiteFlag.png')";
                 scoreList.push(parseInt(this.innerHTML));
+                if (scoreList.length === 3) {
+                    console.log('VITTORIA');
+                    document.getElementById("emoj").src = "img/faccina4.png";
+                    field.style.display = "none";
+                    document.getElementById('win').style.display = "block";
+                    document.getElementById('button').style.display = "none";
+                }
                 document.getElementById('score').innerHTML = scoreList.length;
             } else if (computerList.includes(parseInt(this.innerHTML))) {
                 // this.style.backgroundImage = "url('img/bomb.jpg')";
@@ -51,18 +58,14 @@ button.addEventListener("click", function () {
 
         })
     }
+
+
 });
 
 
 
 
 
-if (scoreList.length === 84) {
-    document.getElementById("emoj").src = "img/faccina4.png";
-    field.style.display = "none";
-    document.getElementById('win').style.display = "block";
-    document.getElementById('button').style.display = "none";
-}
 
 
 
