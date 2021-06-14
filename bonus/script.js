@@ -9,9 +9,8 @@ var button = document.getElementById('button');
 var classCell = document.getElementsByClassName('cell');
 var field = document.getElementById('field');
 var classLost = document.getElementById('lost');
-// var free = 100 - 16;
-var gameOver = false;
 var i = 0;
+var voctory = false;
 
 
 while (computerList.length < 2) {
@@ -34,29 +33,31 @@ button.addEventListener("click", function () {
             i += 1;
         }
     }
+
+    for (x = 0; x < 100; x++) {
+        classCell[x].addEventListener("click", function () {
+            if (!computerList.includes(parseInt(this.innerHTML)) && !scoreList.includes(parseInt(this.innerHTML))) {
+                this.style.backgroundImage = "url('img/whiteFlag.png')";
+                scoreList.push(parseInt(this.innerHTML));
+                document.getElementById('score').innerHTML = scoreList.length;
+            } else if (computerList.includes(parseInt(this.innerHTML))) {
+                // this.style.backgroundImage = "url('img/bomb.jpg')";
+                // gameOver = true;
+                document.getElementById("emoj").src = "img/faccina3.png";
+                field.style.display = "none";
+                document.getElementById('lost').style.display = "block";
+                document.getElementById('button').style.display = "none";
+            }
+
+        })
+    }
 });
 
-for (x = 0; x < 100; x++) {
-    classCell[x].addEventListener("click", function () {
-        if (!computerList.includes(parseInt(this.innerHTML)) && !scoreList.includes(parseInt(this.innerHTML))) {
-            this.style.backgroundImage = "url('img/whiteFlag.png')";
-            scoreList.push(parseInt(this.innerHTML));
-            document.getElementById('score').innerHTML = scoreList.length;
-        } else if (computerList.includes(parseInt(this.innerHTML))) {
-            // this.style.backgroundImage = "url('img/bomb.jpg')";
-            // gameOver = true;
-            document.getElementById("emoj").src = "img/faccina3.png";
-            field.style.display = "none";
-            document.getElementById('lost').style.display = "block";
-            document.getElementById('button').style.display = "none";
-        }
-
-    })
 
 
-}
 
-if (scoreList.length === computerList.length) {
+
+if (scoreList.length === 84) {
     document.getElementById("emoj").src = "img/faccina4.png";
     field.style.display = "none";
     document.getElementById('win').style.display = "block";
