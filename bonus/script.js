@@ -13,7 +13,7 @@ var i = 0;
 var voctory = false;
 
 
-while (computerList.length < 2) {
+while (computerList.length < 16) {
     var computerNum = getRandomNum(1, 100);
     if (!computerList.includes(computerNum)) {
         computerList.push(computerNum);
@@ -39,7 +39,7 @@ button.addEventListener("click", function () {
             if (!computerList.includes(parseInt(this.innerHTML)) && !scoreList.includes(parseInt(this.innerHTML))) {
                 this.style.backgroundImage = "url('img/whiteFlag.png')";
                 scoreList.push(parseInt(this.innerHTML));
-                if (scoreList.length === 3) {
+                if (scoreList.length === 84) {
                     console.log('VITTORIA');
                     document.getElementById("emoj").src = "img/faccina4.png";
                     field.style.display = "none";
